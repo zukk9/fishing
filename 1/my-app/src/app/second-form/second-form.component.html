@@ -1,0 +1,15 @@
+<div class="container" id="searchingFild">
+
+    <div class="col-6"> 
+        <h3 class="">Номер плавального засобу</h3>
+        <input matInput placeholder="пошук плавального засобу" value="" [(ngModel)]="searchText" type="text" class="form-control">
+        <!-- <button type="button" class="btn col-2">Пошук</button> -->
+    </div>
+    <div id="searchingResult">
+
+        <ul *ngFor="let n of numbers | searchFilter:searchText; ">
+            <li>{{n.number}}</li>
+        </ul>
+    </div>
+</div>
+  
