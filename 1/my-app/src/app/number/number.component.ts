@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
-
+export interface Numbers {
+  id: number,
+  number: string
+}
 
 @Component({
   selector: 'app-number',
@@ -8,25 +12,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./number.component.sass']
 })
 export class NumberComponent implements OnInit{
-  // title = 'Angular Search Using ng2-search-filter';
-  // searchText;
-  // heroes = [
-  //   { id: 11, name: 'Mr. Nice', country: 'India' },
-  //   { id: 12, name: 'Narco' , country: 'USA'},
-  //   { id: 13, name: 'Bombasto' , country: 'UK'},
-  //   { id: 14, name: 'Celeritas' , country: 'Canada' },
-  //   { id: 15, name: 'Magneta' , country: 'Russia'},
-  //   { id: 16, name: 'RubberMan' , country: 'China'},
-  //   { id: 17, name: 'Dynama' , country: 'Germany'},
-  //   { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-  //   { id: 19, name: 'Magma' , country: 'South Africa'},
-  //   { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  // ];
+  public filterTerm!: string;
+  public numbers: Numbers[] = [
+    {id: 1, number: 'СВ-112'},
+    {id: 2, number: 'ТВ-123'},
+    {id: 3, number: 'ИИ 321'},
+    {id: 4, number: 'КК34556'},
+  ]; 
 
   constructor() {}
 
   ngOnInit(): void {
     
   }
+  
 
 }

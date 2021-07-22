@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NumberComponent } from './number/number.component';
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { CustomPipe } from '../app/filter.pipe'
 // export
 import {A11yModule} from '@angular/cdk/a11y';
@@ -111,7 +112,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    //  Ng2SearchPipeModule
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

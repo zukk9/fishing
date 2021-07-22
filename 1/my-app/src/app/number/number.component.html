@@ -3,14 +3,26 @@
 
     <h1>Номер авто</h1>
     
-    <form class="form-inline col-xs-8 col-xs-push-3">
+    <form class="form-inline col-xs-8 col-xs-push-3">    
       
-      <div class="form-group row">
         <!-- <label class="sr-only">Номер авто</label> -->
-        <input class="form-control" type="text" name="search"  placeholder="Номер авто">
-      </div>
-      <button type="submit" class="btn btn-primary">Пошук</button>
+        <input class="form-control" type="text" name="search"  placeholder="Номер авто" [(ngModel)]="filterTerm">
+      
+      <!-- <button type="submit" class="btn btn-primary" >Пошук</button>  -->
     </form>
+    
+    <!-- <ng-template #shotListNumbers> -->
+      
+      <div *ngIf="filterTerm && filterTerm.length">
+
+        <ul *ngFor="let number of numbers | filter:filterTerm">
+          <li  >
+            {{number.number}}
+          </li>
+        </ul>
+      </div>
+      
+    <!-- </ng-template> -->
 </div>
    
 </div>
