@@ -1,18 +1,29 @@
-<!-- <div class="container">
+<div class="container">
     <h3>Реєстраційний талон</h3>
-    <form class="col-7" [FormGroup]="form" (ngSubmit)="submit()">
+    <form class="col-7" [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-group">
             <label for="number">Номер плавального засобу</label>
-            <input type="text" class="form-control" id="number" placeholder="Номер плавального засобу">
+            <input type="text" class="form-control" id="number" name="number" placeholder="Номер плавального засобу" formControlName="number" required >
+            <!-- <pre>
+                {{form.value | json}}
+            </pre> -->
+            <div class="validation" *ngIf="form.touched==true">                
+                <small *ngIf="form.value.number=='' ">
+                    type something
+                </small>
+            </div>
         </div>
+        <!-- <pre>{{form.get()}}</pre> -->
         <div class="form-group">
-            <label for="number">Прізвище, ім'я, по батькові</label>
-            <input type="text" class="form-control" id="name" placeholder="Прізвище, ім'я, по батькові">
-        </div>       
-        
-        
-        <button type="submit" class="btn btn-primary">Зареєструвати</button>
+            <label for="full_name">Прізвище, ім'я, по батькові</label>
+            <input type="text" class="form-control" id="name" placeholder="Прізвище, ім'я, по батькові" formControlName="full_name">
+            <div class="validation" *ngIf="form.touched==true">                
+                <small *ngIf="form.value.full_name=='' ">
+                    type full name
+                </small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Зареєструвати</button>
         
     </form>
-</div> -->
-<p>111</p>
+</div>

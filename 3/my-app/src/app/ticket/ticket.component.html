@@ -1,25 +1,44 @@
 <div class="container mx-auto">
+
+    <h5>Пошук по реєстраційному номеру
+        <input type="text"  [(ngModel)]="searchTicket">
+    </h5>      
+    
+    
+    <div *ngIf="searchTicket && searchTicket.length">
+        <ul >
+            <li *ngFor="let n of numbers | filter:searchTicket ">
+                <input type="checkbox" name="{{n.number}}" [(ngModel)]="n.completed" (change)="selectedTicket()">
+                <label for="{{n.number}}">{{n.number}}</label>
+            </li>
+        </ul> 
+    </div>
+</div>
+<div class="container mx-auto" id="print">
+    
     <h3>Талон виходу на воду</h3>
-        <h5>Реєстраційний номер <span>CB-123</span></h5>
-        <form class="col-7">
-            <div class="form-group">
-                <label for="number">Кількість людей</label>
-                <input type="text" class="form-control" id="count" placeholder="Кількість людей">
-            </div>
-            <div class="form-group">            
-                <label for="number">Кількість днів</label>
-                <select class="form-control form-control-lg">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>  
+    <div >Ви обрали талон з номером {{this._getTicketName}}</div>
+    
+    
+    <form class="col-7" [formGroup]="getTicetform" (ngSubmit)="submit()">                
+               
+        <div class="form-group">
+            <label for="number">Кількість людей</label>
+            <input type="text" class="form-control" id="count" placeholder="Кількість людей" formControlName="numberOfPeople">
+        </div>
+        <div class="form-group" >            
+            <label for="number">Кількість днів</label>
+            <select class="form-control form-control-lg" formControlName="numberOfDays">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>  
+        
             
+            <button type="submit" class="btn btn-primary" >Отримати</button>            
             
-            <button type="submit" class="btn btn-primary">Отримати</button>
-            
-        </form>
-   
+    </form>   
 </div>
