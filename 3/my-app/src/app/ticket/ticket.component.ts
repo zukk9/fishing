@@ -1,12 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import {CustomPipe} from '../filter.pipe';
-
-export interface Numbers {
-  id: number,
-  number: string,
-  completed: boolean
-}
+import {numbers} from '../../../../../data';
 
 @Component({
   selector: 'app-ticket',
@@ -14,57 +8,64 @@ export interface Numbers {
   styleUrls: ['./ticket.component.sass']
 })
 export class TicketComponent implements OnInit {
+  @Input() name: string | undefined; 
+  @Input() number: string | undefined;
+
+  _numbers = numbers;
   public searchTicket!: string;
-  TicketId: any[] = [];
-  TicketName: any[] = [];; 
-  _getTicketId = this.TicketId;
-  _getTicketName = this.TicketName;
-  
+ 
+  isTicket: boolean = false;
+  getTicketName: string | undefined
+
   getTicetform!: FormGroup;
   
-  // numbers!: Numbers[];
-  // getNember(){
-  //   this.numbers = [
-  //     {id: 1, number: 'СВ-112', completed: false},
-  //     {id: 2, number: 'ТВ-123', completed: false,},
-  //     {id: 3, number: 'ИИ 321', completed: false,},
-  //     {id: 4, number: 'КК34556', completed: false,},
-  // ]; 
-  // }
-  
-  public numbers: Numbers[] = [
-    {id: 1, number: 'СВ-112', completed: false},
-    {id: 2, number: 'ТВ-123', completed: false,},
-    {id: 3, number: 'ИИ 321', completed: false,},
-    {id: 4, number: 'КК34556', completed: false,},
-]; 
-
   constructor() { }
 
   ngOnInit(): void {
     this.getTicetform = new FormGroup({
       numberOfPeople: new FormControl('', Validators.required),
       numberOfDays: new FormControl('', Validators.required),
-      numberOfTicket: new FormControl('', Validators.required),
+      // numberOfTicket: new FormControl('', Validators.required),
+      privilege: new FormControl('')
+      
       // getTicket: new FormControl('')
     })
-    this.numbers;
+    // this.numbers;
+    
   }
-  submit(){
-    console.log(this.getTicetform.value)
-    console.log(this._getTicketName)
-    // this._getTicket = this.numbers.filter(x=>x.completed==true).map(x=>x.id);
-    // console.log(this.getTicetform)
-  }
+  
   selectedTicket(){
     //this._getTicketId = this.numbers.filter(x=>x.completed==true).map(x=>x.id);
-    this._getTicketName = this.numbers.filter(x=>x.completed==true).map(x=>x.number);
-    
-    // console.log(this._getTicketName)
+    // this._getTicketName = this._numbers.filter(x=>x.completed==true).map(x=>x.number);
+    // if(!this._getTicketName){
+    //   this.isTicket=true;
+    // }else{
+    //   this.isTicket=false;      
+    // }
+
+    // console.log(this.isTicket)
 
     //console.log(this._getTicketId)
     // console.log(this._getTicketName)
     // console.log(this.numbers)
-  } 
+  }
+  getTicket(){
+    // this._getTicketName = this._numbers.filter(x=>x.completed==true).map(x=>x.number);
+    // this.TicketName.push(this._getTicketName);
+    // console.log(this.TicketName)
+    // if(!this._getTicketName){
+    //   this.isTicket=true;
+    // }else{
+    //   this.isTicket=false;      
+    // }
+  }
+  submit(){
+    // this._getTicketName = this._numbers.find(x => x.id == this.getTicetform);
+    console.log(this.getTicetform.value.numberOfPeople)
+    console.log(this.getTicetform.value.numberOfDays)
+    console.log(this.getTicetform.value.privilege)
+    console.log(this.name)
+    console.log(this.number)
+  }
   
 }

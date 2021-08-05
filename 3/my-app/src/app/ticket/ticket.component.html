@@ -1,44 +1,35 @@
-<div class="container mx-auto">
-
-    <h5>Пошук по реєстраційному номеру
-        <input type="text"  [(ngModel)]="searchTicket">
-    </h5>      
-    
-    
-    <div *ngIf="searchTicket && searchTicket.length">
-        <ul >
-            <li *ngFor="let n of numbers | filter:searchTicket ">
-                <input type="checkbox" name="{{n.number}}" [(ngModel)]="n.completed" (change)="selectedTicket()">
-                <label for="{{n.number}}">{{n.number}}</label>
-            </li>
-        </ul> 
-    </div>
-</div>
-<div class="container mx-auto" id="print">
-    
+<div class="container mx-auto" id="print" >    
     <h3>Талон виходу на воду</h3>
-    <div >Ви обрали талон з номером {{this._getTicketName}}</div>
-    
-    
-    <form class="col-7" [formGroup]="getTicetform" (ngSubmit)="submit()">                
-               
+
+        
+    <form class="col-7" [formGroup]="getTicetform" (ngSubmit)="submit()" >                
+        <div class="form-group">        
+            <table class="table table-striped" >
+                <tr>                    
+                    <th scope="col">ПІП</th>
+                    <th scope="col">Номер човна</th>                    
+                </tr>
+                <tr>                    
+                    <td >{{name}}</td>
+                    <td >{{number}}</td>                   
+                </tr>
+            </table> 
+        </div>
         <div class="form-group">
             <label for="number">Кількість людей</label>
-            <input type="text" class="form-control" id="count" placeholder="Кількість людей" formControlName="numberOfPeople">
+            <input type="text" class="form-control" id="people" placeholder="Кількість людей" formControlName="numberOfPeople">
         </div>
+                
         <div class="form-group" >            
-            <label for="number">Кількість днів</label>
-            <select class="form-control form-control-lg" formControlName="numberOfDays">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>  
+            <label for="number" >Кількість днів </label> 
+            <input type="text" class="form-control" id="days" placeholder="Кількість днів" formControlName="numberOfDays">           
+        </div>
         
-            
-            <button type="submit" class="btn btn-primary" >Отримати</button>            
-            
-    </form>   
+        <div class="formprivilege-group" >            
+            <label for="">Пільга: </label>            
+            <input type="checkbox" id="privilege" name="privilege" formControlName="privilege">  
+        </div>                    
+        <button type="submit" class="btn btn-primary" [disabled]="getTicetform.invalid" >Отримати</button>            
+    </form> 
+    
 </div>

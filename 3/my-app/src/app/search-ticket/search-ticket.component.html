@@ -1,0 +1,13 @@
+<div class="container">
+    <form [formGroup]="getTicetSearchform" (ngSubmit)="submit()">        
+        <h5> Реєстраційний номер:        
+            <input type="text" name="ticket" formControlName="ticket">
+            <button type="submit" class="btn btn-primary" >Пошук</button>
+        </h5>
+        <small [hidden]='!isHidden'>номер не знайдено</small>
+        <!-- <small *ngIf="!getTicetSearchform.controls.ticket.invalid">номер не знайдено</small> -->
+    </form>
+    <div   [hidden]='!isNumber'>
+        <app-ticket  [name]="name" [number]="number"></app-ticket>
+    </div>
+</div>

@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchTicketComponent } from './search-ticket/search-ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TicketComponent
+    TicketComponent,
+    SearchTicketComponent
   ],
   imports: [
     BrowserModule,
