@@ -24,45 +24,34 @@ export class TicketComponent implements OnInit {
   ngOnInit(): void {
     this.getTicetform = new FormGroup({
       numberOfPeople: new FormControl('', Validators.required),
-      numberOfDays: new FormControl('', Validators.required),
+      // numberOfDays: new FormControl('', Validators.required),
       // numberOfTicket: new FormControl('', Validators.required),
-      privilege: new FormControl('')
-      
+      privilege: new FormControl(''),
+      daysfrom: new FormControl(''),
+      daysto: new FormControl('')
       // getTicket: new FormControl('')
     })
     // this.numbers;
     
   }
+  timestamp1: any; 
+  timestamp2: any;
+  diff: any;
   
-  selectedTicket(){
-    //this._getTicketId = this.numbers.filter(x=>x.completed==true).map(x=>x.id);
-    // this._getTicketName = this._numbers.filter(x=>x.completed==true).map(x=>x.number);
-    // if(!this._getTicketName){
-    //   this.isTicket=true;
-    // }else{
-    //   this.isTicket=false;      
-    // }
-
-    // console.log(this.isTicket)
-
-    //console.log(this._getTicketId)
-    // console.log(this._getTicketName)
-    // console.log(this.numbers)
-  }
-  getTicket(){
-    // this._getTicketName = this._numbers.filter(x=>x.completed==true).map(x=>x.number);
-    // this.TicketName.push(this._getTicketName);
-    // console.log(this.TicketName)
-    // if(!this._getTicketName){
-    //   this.isTicket=true;
-    // }else{
-    //   this.isTicket=false;      
-    // }
-  }
   submit(){
+    this.timestamp1 = new Date(this.getTicetform.value.daysfrom).getTime();
+    this.timestamp2 = new Date(this.getTicetform.value.daysto).getTime();
+    // var timestamp2 = new Date(this.getTicetform.daysto).getTime();
+    this.diff = (this.timestamp2 - this.timestamp1) / 86400000;
+    
+    console.log(this.diff)
+    
     // this._getTicketName = this._numbers.find(x => x.id == this.getTicetform);
     console.log(this.getTicetform.value.numberOfPeople)
-    console.log(this.getTicetform.value.numberOfDays)
+    // console.log(this.getTicetform.value.numberOfDays)
+    
+    console.log(this.getTicetform.value.daysfrom)
+    console.log(this.getTicetform.value.daysto)
     console.log(this.getTicetform.value.privilege)
     console.log(this.name)
     console.log(this.number)

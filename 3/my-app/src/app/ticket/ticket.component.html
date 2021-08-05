@@ -20,11 +20,17 @@
             <input type="text" class="form-control" id="people" placeholder="Кількість людей" formControlName="numberOfPeople">
         </div>
                 
-        <div class="form-group" >            
+        <!-- <div class="form-group" >            
             <label for="number" >Кількість днів </label> 
-            <input type="text" class="form-control" id="days" placeholder="Кількість днів" formControlName="numberOfDays">           
+            <input type="text" class="form-control" id="days" placeholder="Кількість днів" formControlName="numberOfDays">
+        </div> -->
+        <div class="form-group" >            
+            <label for="number" >Кількість днів - {{diff}}</label> 
+            <input type="date" class="form-control" id="daysfrom" placeholder="з" formControlName="daysfrom" >
+            <input type="date" class="form-control" id="daysto" placeholder="по" formControlName="daysto">
+
         </div>
-        
+
         <div class="formprivilege-group" >            
             <label for="">Пільга: </label>            
             <input type="checkbox" id="privilege" name="privilege" formControlName="privilege">  
