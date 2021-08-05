@@ -1,7 +1,5 @@
 <div class="container mx-auto" id="print" >    
-    <h3>Талон виходу на воду</h3>
-
-        
+    <h3>Талон виходу на воду</h3>        
     <form class="col-7" [formGroup]="getTicetform" (ngSubmit)="submit()" >                
         <div class="form-group">        
             <table class="table table-striped" >
@@ -28,7 +26,6 @@
             <label for="number" >Кількість днів - {{diff}}</label> 
             <input type="date" class="form-control" id="daysfrom" placeholder="з" formControlName="daysfrom" >
             <input type="date" class="form-control" id="daysto" placeholder="по" formControlName="daysto">
-
         </div>
 
         <div class="formprivilege-group" >            

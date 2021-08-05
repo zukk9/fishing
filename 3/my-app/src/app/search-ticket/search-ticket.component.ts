@@ -10,8 +10,6 @@ export class SearchTicketComponent implements OnInit {
   getTicetSearchform!: FormGroup;
   ticketNumberValue: any; 
   _numbers = numbers;
-  // adaptNumber: string | undefined;
-  // trimNumber: string | undefined;
   name: string | undefined; 
   number: string | undefined;
   
@@ -24,33 +22,18 @@ export class SearchTicketComponent implements OnInit {
       ticket: new FormControl('', Validators.required)
     })
   }
-  submit(){
-    // this.trimNumber = this.getTicetSearchform.value.ticket.trim();
-    // this.adaptNumber = this.getTicetSearchform.value.ticket.toLowerCase() || this.getTicetSearchform.value.ticket.toUpperCase();
-    // this.adaptNumber = this.getTicetSearchform.value.ticket;
-    // console.log(this.getTicetSearchform.value.ticket)
-    this.ticketNumberValue = this._numbers.findIndex(obj => obj.number==this.getTicetSearchform.value.ticket);
-    // 0 - founded
-    // -1 didn't found
-    // this.ticketNumberValue = this._numbers.indexOf(this.getTicetSearchform.value.ticket);
-    // console.log(this.getTicetSearchform.value.ticket)
-    // console.log(this.ticketNumberValue)    
-    // console.log(this.ticketNumberValue.name)
-
-    // console.log(this.ticketNumberValue)
+  submit(){    
+    this.ticketNumberValue = this._numbers.findIndex(obj => obj.number==this.getTicetSearchform.value.ticket);    
 
     if(this.ticketNumberValue==0){
-      this.ticketNumberValue = this._numbers.find(x => x.number == this.getTicetSearchform.value.ticket);
-      // this.ticketNumberValue = this._numbers.find(x => x.number == this.getTicetSearchform.value.ticket);
+      this.ticketNumberValue = this._numbers.find(x => x.number == this.getTicetSearchform.value.ticket);      
       this.name = this.ticketNumberValue.name;
-      this.number = this.ticketNumberValue.number;
-      // console.log(this.ticketNumberValue.name)
+      this.number = this.ticketNumberValue.number;     
       this.isHidden=false
       this.isNumber=true
     }else{
       this.isHidden=true
-      this.isNumber=false     
-      // console.log('error')
+      this.isNumber=false
     }
     
     // СВ-112
