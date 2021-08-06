@@ -6,5 +6,7 @@ export interface Numbers {
     completed: boolean,
     privilege: boolean,
     dateFrom?: string,
-    dateTo?: string
+    dateTo?: string,
+    personal: boolean,
+    location: string[]
 }

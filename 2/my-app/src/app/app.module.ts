@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

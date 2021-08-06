@@ -31,7 +31,11 @@
         <div class="formprivilege-group" >            
             <label for="">Пільга: </label>            
             <input type="checkbox" id="privilege" name="privilege" formControlName="privilege">  
-        </div>                    
+        </div>
+        <div class="formprivilege-group" >            
+            <label for="personal">Згода на обробку персональних данних: </label>            
+            <input type="checkbox" id="personal" name="personal" formControlName="personal" required>  
+        </div>                
         <button type="submit" class="btn btn-primary" [disabled]="getTicetform.invalid" >Отримати</button>            
     </form> 
     

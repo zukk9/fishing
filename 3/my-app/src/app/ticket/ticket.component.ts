@@ -11,12 +11,6 @@ export class TicketComponent implements OnInit {
   @Input() name: string | undefined; 
   @Input() number: string | undefined;
 
-  // _numbers = numbers;
-  // public searchTicket!: string;
- 
-  // isTicket: boolean = false;
-  // getTicketName: string | undefined
-
   timestamp1: any; 
   timestamp2: any;
   diff: any;
@@ -27,9 +21,10 @@ export class TicketComponent implements OnInit {
   ngOnInit(): void {
     this.getTicetform = new FormGroup({
       numberOfPeople: new FormControl('', Validators.required),      
-      privilege: new FormControl(''),
-      daysfrom: new FormControl(''),
-      daysto: new FormControl('')     
+      privilege: new FormControl('',Validators.required),
+      daysfrom: new FormControl('',Validators.required),
+      daysto: new FormControl('',Validators.required),
+      personal: new FormControl('',Validators.required) 
     })    
     
   }

@@ -23,7 +23,22 @@
                 </small>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Зареєструвати</button>
+        <div class="form-group">
+            <label for="location">Місце знахождення:</label>
+            <select name="location" id="location" class="form-select" formControlName="location">
+                <option value="town1">town1</option>
+                <option value="town2">town2</option>
+                <option value="town3">town3</option>
+                <option value="town4">town4</option>
+                <option value="town5">town5</option>
+            </select>
+        </div>
+        <div class="form-group">            
+            <label for="">Згода на обробку персональних данних: </label>            
+            <input type="checkbox" id="personal" name="personal" class="form-check-input" formControlName="personal" required>
+            <!-- <mat-checkbox (change)="checkValue($event)">text</mat-checkbox> -->
+        </div> 
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid" mat-button>Зареєструвати</button>
         
     </form>
 </div>
