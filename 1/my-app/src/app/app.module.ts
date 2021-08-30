@@ -58,6 +58,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { DialogComponent } from './dialog/dialog.component';
 // import {DemoMaterialModule} from './app/material-module';
 
 @NgModule({
@@ -65,7 +66,8 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     AppComponent,
     NumberComponent,
     SecondFormComponent,
-    CustomPipe  
+    CustomPipe,
+    DialogComponent  
   ],
   imports: [BrowserModule, FormsModule, MatFormFieldModule, MatInputModule, BrowserAnimationsModule, NoopAnimationsModule, ReactiveFormsModule, 
     A11yModule,

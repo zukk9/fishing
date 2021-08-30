@@ -1,0 +1,14 @@
+<!-- <div *ngFor="let dialog of dialog" > -->
+    <!-- <div *ngIf="dialog.showQuestion" mat-dialog-content> -->
+        <div *ngFor="let dialog of dialogService.dialog">
+            {{dialog.question}}
+            <span (click)="onVoted(dialog.id)" >
+                <button mat-button  (click)="onNo(dialog.id)" class="no" [class.done]="dialog.isVoted" [disabled]="dialog.isVoted">No</button>
+                <button mat-button (click)="onYes(dialog.id)" color="primary" class="yes" [class.done]="dialog.isVoted" [disabled]="dialog.isVoted">Yes</button>
+            </span>
+            <p *ngIf="dialog.answer===false">You chose "No"  </p>
+            <p *ngIf="dialog.answer===true">You chose "Yes"  </p>
+        </div>
+        
+            <!-- </div> -->
+<!-- </div>  -->

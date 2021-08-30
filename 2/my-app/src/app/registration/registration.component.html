@@ -19,7 +19,10 @@
             <input type="text" class="form-control" id="name" placeholder="Прізвище, ім'я, по батькові" formControlName="full_name">
             <div class="validation" *ngIf="form.touched==true">                
                 <small *ngIf="form.value.full_name=='' ">
-                    type full name
+                    введіть ПІП
+                </small><br>
+                <small *ngIf="form.controls['full_name'].invalid">
+                    має бути тільки текст 
                 </small>
             </div>
         </div>

@@ -10,3 +10,10 @@ export interface Numbers {
     personal: boolean,
     location: string[]
 }
+export interface Dialog {
+    id: number,
+    question: string,
+    showQuestion: boolean,
+    answer: boolean,
+    isVoted: boolean
+}
